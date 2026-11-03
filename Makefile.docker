@@ -111,7 +111,7 @@ docker-arch-push:
 	@echo "# Pushing Docker Image $(IMAGE):$(DOCKER_TAG)-manifest-$(subst /,-,$(ARCH))"
 	@echo "################################################################################"
 	docker tag $(IMAGE):$(DOCKER_TAG) $(IMAGE):$(DOCKER_TAG)-manifest-$(subst /,-,$(ARCH))
-	docker push $(IMAGE):$(DOCKER_TAG)-manifest-$(subst /,-,$(ARCH))
+	docker image push --platform $(ARCH) $(IMAGE):$(DOCKER_TAG)-manifest-$(subst /,-,$(ARCH))
 
 
 # -------------------------------------------------------------------------------------------------
